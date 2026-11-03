@@ -936,7 +936,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     $('calc-linhas').innerHTML=t?L:li('Nothing selected yet','$0');
     var d=null;
     if(freq>1&&lg.checked&&prem){
-      var comb=th.checked, extra=freq*Math.max(0,m-15)*20+(comb&&ab.checked?freq*4.5:0);
+      var comb=th.checked, extra=freq*Math.max(0,m-15)*20+(comb&&ab.checked?freq*10:0);
       d={nome:comb?'Long-form + thumbnails':'Long-form only',aba:comb?'aba-combo':'aba-longo',custo:(comb?PL.combo:PL.longo)[freq]+extra,avulso:freq*(vl+vt),porque:'At '+m+' min a video'};
     } else if(freq>1&&!lg.checked&&!sh.checked&&th.checked){
       var tt=tier(ab.checked?PL.thumbAB:PL.thumb,freq);
