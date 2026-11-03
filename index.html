@@ -191,34 +191,54 @@ section{padding-block:120px 0}
 .plano .btn{justify-self:start;font-size:16px}
 .nota{color:var(--texto-3);font-size:15px;margin-top:18px;max-width:80ch}
 
-/* Calculadora à la carte */
-.avulsos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:48px;align-items:start}
-.bloco{border-radius:24px;background:#121110;border:1px solid var(--borda);padding:30px 28px;min-width:0}
-.bloco h3{margin-bottom:22px}
-.calc{display:grid;gap:22px}
-.campo{display:grid;gap:10px}
-.campo label,.campo .rot{font-size:16px;color:var(--texto-2)}
-.minutos{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:16px;align-items:center}
+/* Cotação rápida */
+.cotacao{margin-top:48px;border-radius:34px;padding:20px 34px 34px;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:48px;align-items:start}
+.cotacao>.dots{grid-column:1/-1}
+.q-in h3{margin:6px 0 18px}
+.q-in{display:grid;gap:0;min-width:0}
+.item{padding:16px 0;border-top:1px solid var(--borda);display:grid;gap:14px}
+.sub-calc{display:grid;gap:12px;padding-left:34px}
+.sub-calc[hidden],.check[hidden]{display:none}
+.check.aninhado{padding-left:34px}
+.minutos{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+.num{display:inline-flex;align-items:center;gap:6px;color:var(--texto-3);font-size:15px}
+.num input{width:62px;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--borda-2);border-radius:12px;color:var(--texto);font:500 17px var(--corpo);padding:8px 10px;text-align:center;font-variant-numeric:tabular-nums}
+.dica{font-size:14px;color:var(--texto-3);margin:-4px 0 0}
 input[type=range].faixa-min{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--texto) var(--f,25%),rgba(255,255,255,.14) var(--f,25%));outline-offset:6px}
 input[type=range].faixa-min::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--texto);border:0;box-shadow:0 2px 10px rgba(0,0,0,.5);cursor:pointer}
 input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--texto);border:0;cursor:pointer}
-input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);color:var(--texto);background:#0a0a0a;border:1px solid var(--borda-2);border-radius:12px;padding:10px 12px;text-align:center;font-variant-numeric:tabular-nums}
-.ab-escolha{display:grid;gap:12px;justify-items:start;margin:8px 0 28px}.ab-escolha p{color:var(--leitura);max-width:60ch}
-.seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:#0a0a0a;border:1px solid var(--borda);flex-wrap:wrap}
-.seg label{position:relative;cursor:pointer}
-.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.seg span{display:block;font-size:15px;font-weight:500;color:var(--texto-2);padding:10px 16px;border-radius:999px;transition:background .25s,color .25s}
-.seg input:checked+span{background:var(--texto);color:var(--preto)}
-.seg input:focus-visible+span{outline:2px solid var(--laranja);outline-offset:2px}
-.extras{display:grid;gap:10px}
-.sub-calc{display:grid;gap:14px;padding:4px 0 6px 34px}
-.check{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;cursor:pointer;color:var(--leitura)}
-.check input{width:20px;height:20px;accent-color:var(--texto);margin:0}
-.check small{display:block;font-size:13px;color:var(--texto-3)}
-.check em{font-style:normal;color:var(--texto-2);font-variant-numeric:tabular-nums}
-.total{display:flex;justify-content:space-between;align-items:end;gap:16px;border-top:1px solid var(--borda);padding-top:20px}
-.total .v{font-family:var(--titulo);font-weight:700;font-size:72px;line-height:.85;color:var(--texto);font-variant-numeric:tabular-nums}
-.total p{color:var(--texto-2);font-size:16px;max-width:24ch}
+.check{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;cursor:pointer;color:var(--texto)}
+.check input{width:20px;height:20px;accent-color:var(--laranja);margin:0}
+.check small{display:block;font-size:14px;color:var(--texto-3);margin-top:2px}
+.check em{font-style:normal;color:var(--texto);font-variant-numeric:tabular-nums}
+.sub-calc .check,.check.aninhado{color:var(--leitura)}
+.sub-calc .check em{color:var(--texto-2)}
+.passo-n{display:inline-flex;align-items:center;gap:4px;justify-self:start;color:var(--texto-2);font-size:15px}
+.passo-n button{width:36px;height:36px;border-radius:50%;border:1px solid var(--borda-2);background:rgba(0,0,0,.35);color:var(--texto);font:500 20px/1 var(--corpo);cursor:pointer}
+.passo-n button:disabled{opacity:.35;cursor:default}
+.passo-n output{min-width:40px;text-align:center;color:var(--texto);font-size:17px;font-variant-numeric:tabular-nums}
+.passo-n span{margin-left:6px}
+.passo-n.largo output{min-width:104px}
+.freq{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.freq .rot{color:var(--texto)}
+.q-out{position:sticky;top:110px;display:grid;gap:16px;align-content:start;padding-top:52px;min-width:0}
+.q-out .v{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.q-out .v span{font-family:var(--titulo);font-weight:700;font-size:84px;line-height:.85;color:var(--texto);font-variant-numeric:tabular-nums}
+.q-out .v small{font-size:18px;color:var(--texto-2)}
+.resumo{color:var(--texto-2);font-size:16px;margin:0}
+.plano-q{display:grid;gap:10px;border-top:1px solid var(--borda);padding-top:16px;color:var(--leitura);font-size:16px}
+.plano-q[hidden]{display:none}
+.plano-q .linha{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.plano-q b{color:var(--texto);font-weight:500}
+.plano-q a{color:var(--texto);text-underline-offset:3px}
+.selo-q{font-family:var(--sub);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14px;line-height:1;border-radius:999px;padding:.55em 1em .5em;background:#ff8400;color:#0a0a0a;border:2px solid #0a0a0a;box-shadow:0 0 0 4px #fffefc,0 0 0 5.5px #0a0a0a,3px 4px 0 5.5px rgba(0,0,0,.55);transform:rotate(-5deg);white-space:nowrap;margin-left:6px}
+.q-out .btn{justify-self:start;font-size:16px}
+.piloto-q{color:var(--texto-3);font-size:15px;margin:0}
+.piloto-q a{color:var(--texto-2);text-underline-offset:3px}
+.q-mini{display:none}
+.q-mini{transition:opacity .25s}.q-mini.some{opacity:0;pointer-events:none}
+.num input::-webkit-inner-spin-button,.num input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.num input{-moz-appearance:textfield}
 .tabela{display:grid}
 .tabela div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;padding:14px 0;border-top:1px solid var(--borda)}
 .tabela div:first-child{border-top:0;padding-top:0}
@@ -263,7 +283,7 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
     .cards{grid-template-columns:minmax(0,1fr)}
   .cards.dois{grid-template-columns:minmax(0,1fr)}
   .cards .plano.rec{order:-1}
-  .avulsos{grid-template-columns:minmax(0,1fr)}
+  
   .faq{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:760px){
@@ -291,8 +311,13 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
   .passos .k{width:44px;height:44px;font-size:20px}
   .passos h3{margin-top:8px;font-size:20px}
   .plano{padding:30px 22px 28px;min-height:0}
-  .bloco{padding:26px 20px}
-  .total .v{font-size:60px}
+  .cotacao{grid-template-columns:minmax(0,1fr);padding:16px 20px 20px}
+  .sub-calc,.check.aninhado{padding-left:0}
+  .q-out{position:static;padding-top:24px;gap:14px}
+  .q-mini{display:flex;justify-content:space-between;align-items:center;position:sticky;bottom:12px;z-index:3;margin:8px -8px 0;padding:12px 20px;border-radius:999px;background:rgba(24,14,6,.94);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,214,170,.4),0 12px 34px rgba(0,0,0,.6);color:var(--texto-2);font-size:15px}
+  .q-mini b{font-family:var(--titulo);font-weight:700;font-size:30px;line-height:1;color:var(--texto);font-variant-numeric:tabular-nums}
+  .q-out .v span{font-size:60px}
+  .q-out .btn{justify-self:stretch;justify-content:space-between;white-space:normal}
   .fecho{min-height:0;padding-block:110px 100px}
   .onda{height:48px}
   .fecho .liq{background-image:var(--img-cta-m)}
@@ -305,8 +330,6 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
   .faq details p{padding-right:0}
   .seg{display:grid;grid-template-columns:1fr 1fr;width:100%;box-sizing:border-box}
   .seg span{text-align:center;padding:10px 6px;font-size:14px}
-  #grupo-short .seg{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .sub-calc{padding-left:0}
 }
 </style>
 
@@ -413,57 +436,54 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
   <div class="wrap">
     <div class="topo-secao">
       <h2 id="t-plans">Plans</h2>
-      <p class="intro">Monthly plans cost 15–22% less than the same work ordered one video at a time. Prices in USD.</p>
+      <p class="intro">Plans cost 15–22% less for Premium videos up to 15 min. Prices in USD.</p>
     </div>
-    <div class="avulsos">
-      <div class="bloco">
-        <h3>Quick quote</h3>
-        <form class="calc" id="calc">
-          <div class="extras">
-            <label class="check"><input type="checkbox" id="calc-longo" checked><span>Long-form video</span><em id="calc-longo-v">$200</em></label>
-          </div>
+    <form class="cotacao fosco" id="calc" aria-labelledby="t-quote">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="q-in">
+        <h3 id="t-quote">Quick quote</h3>
+        <div class="item">
+          <label class="check"><input type="checkbox" id="calc-longo" checked><span>Long-form video<small>Cuts, pacing, music. $10/min</small></span><em id="calc-longo-v">$200</em></label>
           <div class="sub-calc" id="grupo-longo">
-            <div class="campo">
-              <label for="calc-min">Length in minutes</label>
-              <div class="minutos">
-                <input class="faixa-min" type="range" id="calc-min" min="1" max="40" value="10" aria-label="Length in minutes">
-                <input type="number" id="calc-min-n" min="1" max="120" value="10" aria-label="Length in minutes, exact">
-              </div>
+            <div class="minutos">
+              <input class="faixa-min" type="range" id="calc-min" min="1" max="60" value="10" aria-label="Length in minutes">
+              <label class="num"><input type="number" id="calc-min-n" min="1" max="60" value="10" aria-label="Length in minutes, exact"><span>min</span></label>
             </div>
-            <label class="check"><input type="checkbox" id="estilo-prem" checked><span>Premium style: motion graphics + SFX</span><em>+$10/min</em></label>
+            <p class="dica">Over 60 min? Ask on WhatsApp.</p>
+            <label class="check"><input type="checkbox" id="estilo-prem" checked><span>Premium: motion graphics + SFX</span><em>+$10/min</em></label>
           </div>
-          <div class="extras">
-            <label class="check"><input type="checkbox" id="calc-short"><span>Short (up to 60 s)</span><em id="calc-short-v">$30</em></label>
-          </div>
-          <div class="sub-calc" id="grupo-short" hidden>
-            <div class="seg" role="radiogroup" aria-label="Short style">
-              <label><input type="radio" name="short" value="30" checked><span>Basic · $30</span></label>
-              <label><input type="radio" name="short" value="50"><span>Plus · $50</span></label>
-              <label><input type="radio" name="short" value="80"><span>Premium · $80</span></label>
-            </div>
-          </div>
-          <div class="extras">
-            <label class="check"><input type="checkbox" id="calc-thumb" checked><span>Thumbnail <small id="calc-thumb-n">50% off with a video</small></span><em id="calc-thumb-v">+$30</em></label>
-            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>Thumbnail with A/B test <small id="calc-ab-n">50% off with a video</small></span><em id="calc-ab-v">+$34.50</em></label>
-            <label class="check"><input type="checkbox" id="calc-rush"><span>Rush delivery, 48 h</span><em>+25%</em></label>
-          </div>
-          <div class="total" aria-live="polite"><span class="v" id="calc-total">$230</span><p id="calc-plano">The same video inside a plan costs up to 22% less.</p></div>
-        </form>
-      </div>
-      <div class="bloco">
-        <h3>À la carte</h3>
-        <div class="tabela">
-          <div><span>Long-form, Standard</span><small>Cuts, pacing, music</small><b>$10 / min</b></div>
-          <div><span>Long-form, Premium</span><small>Standard + motion graphics + SFX</small><b>$20 / min</b></div>
-          <div><span>Short, Basic</span><small>Up to 60 s. Cuts, captions, music</small><b>$30</b></div>
-          <div><span>Short, Plus</span><small>Basic + B-roll + SFX</small><b>$50</b></div>
-          <div><span>Short, Premium</span><small>Plus + motion graphics inserts</small><b>$80</b></div>
-          <div><span>Thumbnail</span><small>1 final design, 2 revision rounds. 50% off with a video ($30)</small><b>$60</b></div>
-          <div><span>Thumbnail with A/B test</span><small>1 design + 2 variants for YouTube's Test &amp; Compare. Only 15% more than a regular thumbnail. 50% off with a video ($34.50)</small><b>$69</b></div>
-          <div><span>Rush delivery, 48 h</span><small>Any item</small><b>+25%</b></div>
         </div>
+        <div class="item">
+          <label class="check"><input type="checkbox" id="calc-short"><span>Short, up to 60 s<small>Cuts, captions, music. $30 each</small></span><em id="calc-short-v">$30</em></label>
+          <div class="sub-calc" id="grupo-short" hidden>
+            <div class="passo-n" data-min="1" data-max="20"><button type="button" data-d="-1" aria-label="Fewer Shorts">−</button><output id="calc-qtd">1</output><button type="button" data-d="1" aria-label="More Shorts">+</button><span>Shorts</span></div>
+            <label class="check"><input type="checkbox" id="short-plus"><span>Plus: B-roll + SFX</span><em>+$20</em></label>
+            <label class="check aninhado" id="linha-short-prem" hidden><input type="checkbox" id="short-prem"><span>Premium: motion graphics inserts</span><em>+$30</em></label>
+          </div>
+        </div>
+        <div class="item">
+          <label class="check"><input type="checkbox" id="calc-thumb" checked><span>Thumbnail<small id="calc-thumb-n">1 design, 2 revision rounds. 50% off with a video</small></span><em id="calc-thumb-v">$30</em></label>
+          <div class="sub-calc" id="grupo-thumb">
+            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>A/B version for YouTube Test &amp; Compare<small>2 extra variants, +15%</small></span><em id="calc-ab-v">+$4.50</em></label>
+          </div>
+        </div>
+        <div class="item">
+          <label class="check"><input type="checkbox" id="calc-rush"><span>Rush delivery, 48 h<small>+25% on the order</small></span><em id="calc-rush-v">+$57.50</em></label>
+        </div>
+        <div class="item freq">
+          <span class="rot">How often</span>
+          <div class="passo-n largo" id="calc-freq"><button type="button" data-d="-1" aria-label="Less often">−</button><output id="calc-freq-v">Once</output><button type="button" data-d="1" aria-label="More often">+</button></div>
+        </div>
+        <div class="q-mini" aria-hidden="true"><span>Estimate</span><b id="calc-mini">$230</b></div>
       </div>
-    </div>
+      <div class="q-out" aria-live="polite">
+        <div class="v"><span id="calc-total">$230</span><small id="calc-mes"></small></div>
+        <p class="resumo" id="calc-resumo">10-min Premium video + thumbnail</p>
+        <div class="plano-q" id="calc-plano" hidden></div>
+        <a class="btn btn-prim" id="calc-whats" href="#start" target="_blank" rel="noopener">Send this quote on WhatsApp <span class="seta" aria-hidden="true">→</span></a>
+        <p class="piloto-q">Not sure yet? <a href="#start">Paid pilot</a>: up to 15 min at $10/min, or a 1-min test for $30.</p>
+      </div>
+    </form>
     <div class="abas" role="tablist" aria-label="Plan type">
       <button type="button" role="tab" id="aba-longo" aria-controls="painel-longo" aria-selected="true">Long-form only</button>
       <button type="button" role="tab" id="aba-shorts" aria-controls="painel-shorts" aria-selected="false" tabindex="-1">Shorts only</button>
@@ -828,31 +848,72 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
   });
 })();
 
-// Calculadora por minuto
+// Cotação rápida
 (function(){
-  var f=document.getElementById('calc'), r=document.getElementById('calc-min'), n=document.getElementById('calc-min-n');
   function $(id){ return document.getElementById(id); }
-  var lg=$('calc-longo'), sh=$('calc-short'), th=$('calc-thumb'), ab=$('calc-thumb-ab'), ru=$('calc-rush'), out=$('calc-total'), dica=$('calc-plano');
+  var f=$('calc'), r=$('calc-min'), n=$('calc-min-n');
+  var lg=$('calc-longo'), pr=$('estilo-prem'), sh=$('calc-short'), sp=$('short-plus'), sm=$('short-prem'), th=$('calc-thumb'), ab=$('calc-thumb-ab'), ru=$('calc-rush');
+  var FREQ=[1,4,8,12], fi=0, qtd=1;
+  var PL={longo:{4:1000,8:2000,12:2900},combo:{4:1100,8:2200,12:3200},thumb:[[4,180],[10,300],[20,400]],thumbAB:[[4,207],[10,345],[20,460]],shorts:[[30,1250],[60,2400]]};
   f.addEventListener('submit',function(e){ e.preventDefault(); });
   function usd(v){ v=Math.round(v*100)/100; return '$'+v.toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2}); }
+  function tier(t,c){ for(var i=0;i<t.length;i++) if(c<=t[i][0]) return t[i]; return null; }
+  function plano(dados){ // {nome, aba, custo, avulso}
+    var el=$('calc-plano');
+    if(!dados){ el.hidden=true; el.innerHTML=''; return; }
+    el.hidden=false;
+    if(dados.custo<dados.avulso){
+      el.innerHTML='<div class="linha"><span>'+dados.nome+' plan: <b>'+usd(dados.custo)+'/mo</b></span><span class="selo-q">Save '+usd(dados.avulso-dados.custo)+'</span></div><a href="#plans" data-aba="'+dados.aba+'">See plan →</a>';
+    } else el.innerHTML='<span>'+dados.porque+', à la carte is cheaper than a plan.</span>';
+  }
   function calc(){
-    var m=Math.max(1,Math.min(120,parseInt(n.value,10)||1));
-    var taxa=$('estilo-prem').checked?20:10;
-    var sv=parseFloat(f.querySelector('input[name=short]:checked').value);
-    var video=lg.checked||sh.checked, k=video?0.5:1;
-    $('grupo-longo').hidden=!lg.checked; $('grupo-short').hidden=!sh.checked;
-    $('calc-longo-v').textContent=usd(m*taxa); $('calc-short-v').textContent=usd(sv);
-    $('calc-thumb-v').textContent='+'+usd(60*k); $('calc-ab-v').textContent='+'+usd(69*k);
-    $('calc-thumb-n').textContent=$('calc-ab-n').textContent=video?'50% off with a video':'Add a video to get 50% off';
-    var t=(lg.checked?m*taxa:0)+(sh.checked?sv:0)+(th.checked?60*k:0)+(ab.checked?69*k:0); if(ru.checked) t*=1.25;
-    out.textContent=usd(t);
-    r.style.setProperty('--f',((Math.min(m,40)-1)/39*100).toFixed(1)+'%');
-    dica.textContent=!video&&t>0?'Need thumbnails every month? Plans start at $20 per thumbnail.':t===0?'Pick what you need.':(lg.checked&&m>15&&taxa===20)?'Plans include up to 15 minutes per video; extra minutes are $20 each.':'The same work inside a monthly plan costs up to 22% less.';
+    var m=Math.max(1,Math.min(60,parseInt(n.value,10)||1)), prem=pr.checked, taxa=prem?20:10;
+    var sv=30+(sp.checked?20:0)+(sp.checked&&sm.checked?30:0);
+    var video=lg.checked||sh.checked, k=video?0.5:1, tv=60*k, av=tv*0.15;
+    var freq=FREQ[fi];
+    $('grupo-longo').hidden=!lg.checked; $('grupo-short').hidden=!sh.checked; $('grupo-thumb').hidden=!th.checked;
+    $('linha-short-prem').hidden=!sp.checked; if(!sp.checked) sm.checked=false;
+    if(!th.checked) ab.checked=false;
+    var vl=lg.checked?m*taxa:0, vs=sh.checked?sv*qtd:0, vt=th.checked?tv+(ab.checked?av:0):0;
+    var base=vl+vs+vt, rush=ru.checked?base*0.25:0, t=base+rush;
+    $('calc-longo-v').textContent=usd(m*taxa); $('calc-short-v').textContent=usd(sv*qtd);
+    $('calc-thumb-v').textContent=usd(tv); $('calc-ab-v').textContent='+'+usd(60*k*0.15);
+    $('calc-thumb-n').textContent=video?'1 design, 2 revision rounds. 50% off with a video':'1 design, 2 revision rounds. $30 with a video';
+    $('calc-rush-v').textContent='+'+usd((ru.checked?base:base)*0.25);
+    $('calc-qtd').textContent=qtd; $('calc-freq-v').textContent=freq===1?'Once':freq+' a month';
+    $('calc-total').textContent=$('calc-mini').textContent=usd(t*freq)+(freq>1&&false?'':''); if(freq>1) $('calc-mini').textContent=usd(t*freq)+'/mo'; $('calc-mes').textContent=freq>1?'/ month':'';
+    var p=[];
+    if(lg.checked) p.push(m+'-min '+(prem?'Premium':'Standard')+' video');
+    if(sh.checked) p.push(qtd+' '+(sm.checked?'Premium ':sp.checked?'Plus ':'')+'Short'+(qtd>1?'s':''));
+    if(th.checked) p.push(ab.checked?'A/B thumbnail':'thumbnail');
+    var resumo=p.join(' + ')+(ru.checked?', 48 h':'');
+    $('calc-resumo').textContent=t?resumo.charAt(0).toUpperCase()+resumo.slice(1)+(freq>1?', '+freq+' times a month':''):'Pick what you need.';
+    // Plano: só quando há frequência mensal e a comparação é honesta
+    var d=null;
+    if(freq>1&&lg.checked&&prem){
+      var comb=th.checked, extra=freq*Math.max(0,m-15)*20+(comb&&ab.checked?freq*4.5:0);
+      d={nome:comb?'Long-form + thumbnails':'Long-form only',aba:comb?'aba-combo':'aba-longo',custo:(comb?PL.combo:PL.longo)[freq]+extra,avulso:freq*(vl+vt),porque:'At '+m+' min a video'};
+    } else if(freq>1&&!lg.checked&&!sh.checked&&th.checked){
+      var tt=tier(ab.checked?PL.thumbAB:PL.thumb,freq);
+      if(tt) d={nome:'Thumbnails '+tt[0],aba:'aba-thumbs',custo:tt[1],avulso:freq*vt,porque:'At '+freq+' a month'};
+    } else if(!lg.checked&&sh.checked&&sp.checked&&qtd*freq>=20){
+      var ts=tier(PL.shorts,qtd*freq);
+      if(ts) d={nome:'Shorts '+ts[0],aba:'aba-shorts',custo:ts[1],avulso:freq*vs,porque:'At '+qtd*freq+' Shorts a month'};
+    }
+    plano(d);
+    r.value=m; r.style.setProperty('--f',((m-1)/59*100).toFixed(1)+'%');
+    f.querySelectorAll('#grupo-short .passo-n button')[0].disabled=qtd<=1; f.querySelectorAll('#grupo-short .passo-n button')[1].disabled=qtd>=20;
+    $('calc-freq').querySelectorAll('button')[0].disabled=fi<=0; $('calc-freq').querySelectorAll('button')[1].disabled=fi>=FREQ.length-1;
+    var msg='Hi Lucas, quote from your site: '+(freq>1?freq+' a month, ':'')+p.join(', ')+(ru.checked?', 48 h rush':'')+'. Estimate: '+usd(t*freq)+(freq>1?'/mo':'')+'. My channel: ';
+    $('calc-whats').href=CONFIG.whatsapp?'https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(msg):'#start';
   }
   r.addEventListener('input',function(){ n.value=r.value; calc(); });
-  n.addEventListener('input',function(){ var v=parseInt(n.value,10); if(v>=1) r.value=Math.min(40,v); calc(); });
-  th.addEventListener('change',function(){ if(th.checked) ab.checked=false; });
-  ab.addEventListener('change',function(){ if(ab.checked) th.checked=false; });
+  n.addEventListener('input',function(){ if(parseInt(n.value,10)>=1) calc(); });
+  n.addEventListener('change',function(){ n.value=Math.max(1,Math.min(60,parseInt(n.value,10)||1)); calc(); });
+  f.querySelector('#grupo-short .passo-n').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; qtd=Math.max(1,Math.min(20,qtd+ +b.dataset.d)); calc(); });
+  $('calc-freq').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; fi=Math.max(0,Math.min(FREQ.length-1,fi+ +b.dataset.d)); calc(); });
+  $('calc-plano').addEventListener('click',function(e){ var a=e.target.closest('[data-aba]'); if(!a) return; e.preventDefault(); var t=$(a.dataset.aba); t.click(); document.querySelector('.abas').scrollIntoView({behavior:calmo?'auto':'smooth',block:'start'}); });
+  if('IntersectionObserver' in window){ var mini=document.querySelector('.q-mini'); new IntersectionObserver(function(es){ mini.classList.toggle('some',es[0].isIntersecting); },{threshold:.35}).observe(document.querySelector('.q-out .v')); }
   f.addEventListener('change',calc); calc();
 })();
 
