@@ -197,7 +197,7 @@ section{padding-block:120px 0}
 .cotacao{position:relative;margin-top:48px;border-radius:34px;padding:0;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);align-items:stretch;overflow:hidden}
 .cotacao>.dots{position:absolute;top:20px;left:34px;padding:0;z-index:2}
 .q-in{display:grid;gap:30px;padding:52px 40px 40px 34px;min-width:0;align-content:start}
-.q-cab h3{font-family:var(--titulo);font-weight:700;text-transform:none;letter-spacing:0;font-size:52px;line-height:.95}
+.q-cab h3{font-family:var(--sub);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:34px;line-height:1}
 .q-cab p{margin:10px 0 0;color:var(--texto-2);font-size:17px}
 .etapa{border:0;margin:0;padding:0;min-width:0;display:grid;gap:14px}
 .etapa legend{padding:0;margin-bottom:14px;display:flex;align-items:center;gap:12px;font-family:var(--sub);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:17px;color:var(--texto)}
@@ -256,6 +256,7 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
 .plano-q .linha{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .plano-q b{color:var(--texto);font-weight:500}
 .plano-q a{color:var(--texto);text-underline-offset:3px}
+.selo-desc{font-size:16px;margin-left:auto;align-self:center;transform:rotate(-6deg)}.selo-desc[hidden]{display:none}
 .selo-q{font-family:var(--sub);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14px;line-height:1;border-radius:999px;padding:.55em 1em .5em;background:#ff8400;color:#0a0a0a;border:2px solid #0a0a0a;box-shadow:0 0 0 4px #fffefc,0 0 0 5.5px #0a0a0a,3px 4px 0 5.5px rgba(0,0,0,.55);transform:rotate(-5deg);white-space:nowrap;margin-left:6px}
 .q-out .btn{justify-self:stretch;justify-content:space-between;font-size:16px}
 .piloto-q{color:var(--texto-3);font-size:15px;margin:0}
@@ -336,7 +337,7 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
   .cotacao{grid-template-columns:minmax(0,1fr)}
   .cotacao>.dots{top:16px;left:20px}
   .q-in{padding:40px 20px 24px;gap:26px}
-  .q-cab h3{font-size:42px}
+  .q-cab h3{font-size:28px}
   .tiles{grid-template-columns:minmax(0,1fr);gap:8px}
   .tile{grid-template-columns:30px minmax(0,1fr) auto;column-gap:14px;row-gap:0;align-items:center;padding:14px 50px 14px 16px}
   .tile svg{grid-row:1/3;margin:0;width:28px;height:28px}
@@ -530,7 +531,7 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
 
       <aside class="q-out" aria-live="polite">
         <h4>Your estimate</h4>
-        <div class="v"><span id="calc-total">$230</span><small id="calc-mes"></small></div>
+        <div class="v"><span id="calc-total">$230</span><small id="calc-mes"></small><b class="selo-q selo-desc" id="calc-selo" hidden></b></div>
         <ul class="linhas" id="calc-linhas"></ul>
         <div class="plano-q" id="calc-plano" hidden></div>
         <a class="btn btn-prim" id="calc-whats" href="#start" target="_blank" rel="noopener">Send this quote on WhatsApp <span class="seta" aria-hidden="true">→</span></a>
@@ -949,7 +950,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     var tot=usd(t*freq);
     $('calc-total').textContent=tot; $('calc-mes').textContent=freq>1?'/ month':''; $('calc-mini').textContent=tot+(freq>1?'/mo':'');
     var L='', p=[];
-    if(lg.checked){ L+=li('Long-form, '+m+' min'+(prem?', Premium':''),usd(cheio)); if(desc>0) L+=li('Long-video discount','−'+usd(desc),'desc'); p.push(m+'-min '+(prem?'Premium ':'')+'long-form video'); }
+    if(lg.checked){ L+=li('Long-form, '+m+' min'+(prem?', Premium':''),usd(cheio)); if(desc>0) L+=li('Long-video discount, 15% off minutes 21–30','−'+usd(desc),'desc'); p.push(m+'-min '+(prem?'Premium ':'')+'long-form video'); }
     if(sh.checked){ var nv=sm.checked?'Premium':sp.checked?'Plus':'Basic'; L+=li(qtd+' '+nv+' Short'+(qtd>1?'s':''),usd(vs)); p.push(qtd+' '+nv+' Short'+(qtd>1?'s':'')); }
     if(th.checked){ L+=li((ab.checked?'Thumbnail + A/B':'Thumbnail')+(video?', 50% off':''),usd(vt)); p.push(ab.checked?'thumbnail with A/B':'thumbnail'); }
     if(ru.checked) L+=li('Rush, 48 h','+'+usd(rush));
@@ -968,6 +969,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     }
     plano(d);
     r.value=m; r.style.setProperty('--f',((m-1)/29*100).toFixed(1)+'%');
+    var sl=$('calc-selo'); sl.hidden=!(lg.checked&&desc>0); sl.textContent='−'+usd(desc*freq)+' long-video discount';
     $('calc-desc').innerHTML=desc>0?'Long-video discount: <b>−'+usd(desc)+'</b> ('+Math.round(desc/cheio*100)+'% off). Over 30 min? Get a quote on WhatsApp.':'Minutes 21–30 are 15% off. Over 30 min? Get a quote on WhatsApp.';
     var bs=f.querySelectorAll('#grupo-short .passo-n button'); bs[0].disabled=qtd<=1; bs[1].disabled=qtd>=20;
     var bf=$('calc-freq').querySelectorAll('button'); bf[0].disabled=fi<=0; bf[1].disabled=fi>=FREQ.length-1;
