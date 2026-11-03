@@ -94,7 +94,7 @@ section{padding-block:120px 0}
 .gaveta a{padding:12px 8px;text-decoration:none;font-size:19px;border-top:1px solid var(--borda)}
 
 /* ===== Hero ===== */
-.hero{position:relative;overflow:hidden;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start;align-content:start;text-align:left;padding-block:136px 120px;padding-inline:max(24px,calc((100% - 1200px) / 2));isolation:isolate}
+.hero{position:relative;overflow:hidden;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start;align-content:start;text-align:left;padding-block:164px 120px;padding-inline:max(24px,calc((100% - 1200px) / 2));isolation:isolate}
 .hero-txt{display:grid;justify-items:start;min-width:0}
 @media (max-width:1000px){.hero{grid-template-columns:minmax(0,1fr)}.prova{justify-self:start}}
 .vivo{position:absolute;inset:0;z-index:-2;background:var(--img-hero) center/cover no-repeat}
@@ -173,7 +173,7 @@ section{padding-block:120px 0}
 .piloto p{color:var(--leitura)}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px;align-items:stretch}
 .cards.dois{grid-template-columns:repeat(2,minmax(0,1fr))}
-.plano{position:relative;overflow:hidden;display:grid;grid-template-rows:auto auto auto auto 1fr auto;gap:22px;padding:40px 32px 40px;border-radius:34px;min-width:0;min-height:500px}
+.plano{position:relative;overflow:hidden;display:grid;grid-template-rows:auto auto auto auto 1fr auto;gap:18px;padding:34px 30px 32px;border-radius:34px;min-width:0;min-height:440px}
 .plano.rec{border-color:rgba(255,149,43,.35)}
 .plano.rec .liq{position:absolute;inset:0;background:var(--img-plano) 70% 72%/auto 170% no-repeat}
 .plano.rec .vidro{position:absolute;inset:0;border-radius:inherit}
@@ -283,7 +283,7 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
   .cortes-v{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
   .cortes-v figcaption{font-size:13px}
   .corte .som{top:8px;right:8px;font-size:12px;padding:.5em .8em}
-  .hero{padding-block:112px 40px;gap:40px;padding-inline:16px}
+  .hero{padding-block:128px 40px;gap:40px;padding-inline:16px}
   .prova{justify-self:stretch;width:100%}
   .hero .ctas{display:grid;width:100%;max-width:340px}
   .hero .ctas .btn{justify-content:space-between}
@@ -445,7 +445,7 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
           </div>
           <div class="extras">
             <label class="check"><input type="checkbox" id="calc-thumb" checked><span>Thumbnail <small id="calc-thumb-n">50% off with a video</small></span><em id="calc-thumb-v">+$30</em></label>
-            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>Thumbnail with A/B test <small id="calc-ab-n">50% off with a video</small></span><em id="calc-ab-v">+$50</em></label>
+            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>Thumbnail with A/B test <small id="calc-ab-n">50% off with a video</small></span><em id="calc-ab-v">+$34.50</em></label>
             <label class="check"><input type="checkbox" id="calc-rush"><span>Rush delivery, 48 h</span><em>+25%</em></label>
           </div>
           <div class="total" aria-live="polite"><span class="v" id="calc-total">$230</span><p id="calc-plano">The same video inside a plan costs up to 22% less.</p></div>
@@ -460,7 +460,7 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
           <div><span>Short, Plus</span><small>Basic + B-roll + SFX</small><b>$50</b></div>
           <div><span>Short, Premium</span><small>Plus + motion graphics inserts</small><b>$80</b></div>
           <div><span>Thumbnail</span><small>1 final design, 2 revision rounds. 50% off with a video ($30)</small><b>$60</b></div>
-          <div><span>Thumbnail with A/B test</span><small>1 design + 2 variants for YouTube's Test &amp; Compare. 50% off with a video ($50)</small><b>$100</b></div>
+          <div><span>Thumbnail with A/B test</span><small>1 design + 2 variants for YouTube's Test &amp; Compare. Only 15% more than a regular thumbnail. 50% off with a video ($34.50)</small><b>$69</b></div>
           <div><span>Rush delivery, 48 h</span><small>Any item</small><b>+25%</b></div>
         </div>
       </div>
@@ -564,8 +564,8 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
         <article class="plano fosco">
           <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cab"><h3>Thumbs 4 A/B</h3></div>
-          <div class="valor"><b>$300</b><span>per month</span></div>
-          <p class="avulso">$75 per thumbnail with variants</p>
+          <div class="valor"><b>$207</b><span>per month</span></div>
+          <p class="avulso">$51.75 per thumbnail with variants</p>
           <ul><li>4 thumbnails + 2 variants each</li><li>2 revision rounds each</li></ul>
           <a class="btn btn-vidro" href="#start" data-acao="plan" data-plano="Thumbs 4 A/B">Choose Thumbs 4 A/B <span class="seta" aria-hidden="true">→</span></a>
         </article>
@@ -573,21 +573,21 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
           <div class="liq" aria-hidden="true"></div><div class="vidro fosco" aria-hidden="true"></div>
           <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cab"><h3>Thumbs 10 A/B</h3></div>
-          <div class="valor"><b>$600</b><span>per month</span></div>
-          <p class="avulso">$60 per thumbnail with variants</p>
+          <div class="valor"><b>$345</b><span>per month</span></div>
+          <p class="avulso">$34.50 per thumbnail with variants</p>
           <ul><li>10 thumbnails + 2 variants each</li><li>2 revision rounds each</li></ul>
           <a class="btn btn-vidro" href="#start" data-acao="plan" data-plano="Thumbs 10 A/B">Choose Thumbs 10 A/B <span class="seta" aria-hidden="true">→</span></a>
         </article>
         <article class="plano fosco">
           <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cab"><h3>Thumbs 20 A/B</h3></div>
-          <div class="valor"><b>$1,000</b><span>per month</span></div>
-          <p class="avulso">$50 per thumbnail with variants</p>
+          <div class="valor"><b>$460</b><span>per month</span></div>
+          <p class="avulso">$23 per thumbnail with variants</p>
           <ul><li>20 thumbnails + 2 variants each</li><li>2 revision rounds each</li></ul>
           <a class="btn btn-vidro" href="#start" data-acao="plan" data-plano="Thumbs 20 A/B">Choose Thumbs 20 A/B <span class="seta" aria-hidden="true">→</span></a>
         </article>
       </div>
-      <p class="nota">A single thumbnail is $60, or $100 with A/B variants. Extra variants for an existing thumbnail are $20 each.</p>
+      <p class="nota">A single thumbnail is $60, or $69 with A/B variants. A/B always costs just 15% more than the same thumbnail without it.</p>
     </div>
 
     <div role="tabpanel" id="painel-combo" aria-labelledby="aba-combo" hidden>
@@ -631,7 +631,7 @@ input[type=number]{width:100%;box-sizing:border-box;font:500 18px var(--corpo);c
       <details open><summary>Do you do free test edits?</summary><p>No. The paid pilot replaces it: a full edit of up to 15 minutes at $10 per minute, or a 1-minute skills test for $30 if you want to see our work first. If you continue, the pilot fee comes off your first month.</p></details>
       <details><summary>How do I send footage?</summary><p>A Google Drive or Dropbox link with the raw files, plus the script if you have one, the target length and the upload date. Reviews happen in a shared link where you leave notes on the timeline.</p></details>
       <details><summary>What if I only need thumbnails?</summary><p>Pick a thumbnail plan: 4, 10 or 20 a month, with or without A/B testing. Each design includes two revision rounds.</p></details>
-      <details><summary>Do you do A/B testing for thumbnails?</summary><p>Yes. With an A/B plan, every thumbnail comes with 2 variants, ready for YouTube's Test &amp; Compare. YouTube shows each version to part of your audience and keeps the one with the best watch time. A single A/B set costs $100.</p></details>
+      <details><summary>Do you do A/B testing for thumbnails?</summary><p>Yes. With an A/B plan, every thumbnail comes with 2 variants, ready for YouTube's Test &amp; Compare. YouTube shows each version to part of your audience and keeps the one with the best watch time. A/B costs only 15% more than a regular thumbnail: $69 for a single set.</p></details>
       <details><summary>What hours do you work?</summary><p>UK/US-friendly hours. Every message about a delivery comes with a concrete day, time and timezone.</p></details>
     </div>
   </div>
@@ -835,7 +835,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
   function $(id){ return document.getElementById(id); }
   var lg=$('calc-longo'), sh=$('calc-short'), th=$('calc-thumb'), ab=$('calc-thumb-ab'), ru=$('calc-rush'), out=$('calc-total'), dica=$('calc-plano');
   f.addEventListener('submit',function(e){ e.preventDefault(); });
-  function usd(v){ return '$'+Math.round(v).toLocaleString('en-US'); }
+  function usd(v){ v=Math.round(v*100)/100; return '$'+v.toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2}); }
   function calc(){
     var m=Math.max(1,Math.min(120,parseInt(n.value,10)||1));
     var taxa=$('estilo-prem').checked?20:10;
@@ -843,9 +843,9 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     var video=lg.checked||sh.checked, k=video?0.5:1;
     $('grupo-longo').hidden=!lg.checked; $('grupo-short').hidden=!sh.checked;
     $('calc-longo-v').textContent=usd(m*taxa); $('calc-short-v').textContent=usd(sv);
-    $('calc-thumb-v').textContent='+'+usd(60*k); $('calc-ab-v').textContent='+'+usd(100*k);
+    $('calc-thumb-v').textContent='+'+usd(60*k); $('calc-ab-v').textContent='+'+usd(69*k);
     $('calc-thumb-n').textContent=$('calc-ab-n').textContent=video?'50% off with a video':'Add a video to get 50% off';
-    var t=(lg.checked?m*taxa:0)+(sh.checked?sv:0)+(th.checked?60*k:0)+(ab.checked?100*k:0); if(ru.checked) t*=1.25;
+    var t=(lg.checked?m*taxa:0)+(sh.checked?sv:0)+(th.checked?60*k:0)+(ab.checked?69*k:0); if(ru.checked) t*=1.25;
     out.textContent=usd(t);
     r.style.setProperty('--f',((Math.min(m,40)-1)/39*100).toFixed(1)+'%');
     dica.textContent=!video&&t>0?'Need thumbnails every month? Plans start at $20 per thumbnail.':t===0?'Pick what you need.':(lg.checked&&m>15&&taxa===20)?'Plans include up to 15 minutes per video; extra minutes are $20 each.':'The same work inside a monthly plan costs up to 22% less.';
