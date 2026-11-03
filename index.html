@@ -219,6 +219,9 @@ section{padding-block:120px 0}
 .aj-cab{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--texto-2);font-size:15px}
 .aj-cab b{font-family:var(--titulo);font-weight:700;font-size:30px;line-height:1;color:var(--texto);font-variant-numeric:tabular-nums}
 .vazio{color:var(--texto-3);margin:0}
+.desc-longo{margin:-2px 0 0;font-size:14px;color:var(--texto-3)}
+.desc-longo b{color:var(--laranja);font-weight:500}
+.linhas li.desc b{color:var(--laranja)}
 .minutos{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
 .num input{width:62px;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--borda-2);border-radius:12px;color:var(--texto);font:500 17px var(--corpo);padding:8px 10px;text-align:center;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
 .num input::-webkit-inner-spin-button,.num input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -492,9 +495,10 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
           <div class="ajuste" id="grupo-longo">
             <div class="aj-cab"><span>Long-form length</span><b><span id="calc-min-big">10</span> min</b></div>
             <div class="minutos">
-              <input class="faixa-min" type="range" id="calc-min" min="1" max="60" value="10" aria-label="Length in minutes">
-              <label class="num"><input type="number" id="calc-min-n" min="1" max="60" value="10" aria-label="Length in minutes, exact"></label>
+              <input class="faixa-min" type="range" id="calc-min" min="1" max="120" value="10" aria-label="Length in minutes">
+              <label class="num"><input type="number" id="calc-min-n" min="1" max="120" value="10" aria-label="Length in minutes, exact"></label>
             </div>
+            <p class="desc-longo" id="calc-desc">Longer videos cost less: every minute after 20 is up to 30% off.</p>
             <label class="check"><input type="checkbox" id="estilo-prem" checked><span>Premium editing<small>Motion graphics + sound design</small></span><em>+$10/min</em></label>
           </div>
           <div class="ajuste" id="grupo-short" hidden>
@@ -563,7 +567,7 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
           <a class="btn btn-vidro" href="#start" data-acao="plan" data-plano="Long-form Scale">Choose Scale <span class="seta" aria-hidden="true">→</span></a>
         </article>
       </div>
-      <p class="nota">Quoted in Premium style (motion graphics + SFX), up to 15 minutes per video. Extra minutes are $20 each. Standard style uses the same math at $10/minute.</p>
+      <p class="nota">Quoted in Premium style (motion graphics + SFX), up to 15 minutes per video. Extra minutes are $20 each, and every minute after 20 is up to 30% off. Standard style uses the same math at $10/minute.</p>
     </div>
 
     <div role="tabpanel" id="painel-shorts" aria-labelledby="aba-shorts" hidden>
@@ -681,7 +685,7 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
           <a class="btn btn-vidro" href="#start" data-acao="plan" data-plano="Long-form + thumbnails Scale">Choose Scale <span class="seta" aria-hidden="true">→</span></a>
         </article>
       </div>
-      <p class="nota">Quoted in Premium style (motion graphics + SFX), up to 15 minutes per video, one thumbnail per video (à la carte thumbnails are 50% off with a video). Extra minutes are $20 each.</p>
+      <p class="nota">Quoted in Premium style (motion graphics + SFX), up to 15 minutes per video, one thumbnail per video (à la carte thumbnails are 50% off with a video). Extra minutes are $20 each, and every minute after 20 is up to 30% off.</p>
     </div>
 
   </div>
@@ -902,6 +906,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
   f.addEventListener('submit',function(e){ e.preventDefault(); });
   function usd(v){ v=Math.round(v*100)/100; return '$'+v.toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2}); }
   function tier(t,c){ for(var i=0;i<t.length;i++) if(c<=t[i][0]) return t[i]; return null; }
+  function custo(m,t){ var F=[[20,1],[30,.85],[60,.75],[1e9,.7]], tot=0, ant=0; for(var i=0;i<F.length&&m>ant;i++){ var q=Math.min(m,F[i][0])-ant; tot+=q*t*F[i][1]; ant=F[i][0]; } return tot; }
   function li(a,b,c){ return '<li'+(c?' class="'+c+'"':'')+'><span>'+a+'</span><b>'+b+'</b></li>'; }
   function plano(d){
     var el=$('calc-plano');
@@ -912,14 +917,14 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     } else { el.classList.add('neutro'); el.innerHTML='<span>'+d.porque+', ordering one by one is cheaper than a plan.</span>'; }
   }
   function calc(){
-    var m=Math.max(1,Math.min(60,parseInt(n.value,10)||1)), prem=pr.checked, taxa=prem?20:10;
+    var m=Math.max(1,Math.min(120,parseInt(n.value,10)||1)), prem=pr.checked, taxa=prem?20:10;
     var sv=30+(sp.checked?20:0)+(sp.checked&&sm.checked?30:0);
     var video=lg.checked||sh.checked, k=video?0.5:1, tv=60*k, av=tv*0.15, freq=FREQ[fi];
     $('grupo-longo').hidden=!lg.checked; $('grupo-short').hidden=!sh.checked; $('grupo-thumb').hidden=!th.checked;
     $('calc-vazio').hidden=lg.checked||sh.checked||th.checked;
     $('linha-short-prem').hidden=!sp.checked; if(!sp.checked) sm.checked=false;
     if(!th.checked) ab.checked=false;
-    var vl=lg.checked?m*taxa:0, vs=sh.checked?sv*qtd:0, vt=th.checked?tv+(ab.checked?av:0):0;
+    var cheio=m*taxa, desc=cheio-custo(m,taxa), vl=lg.checked?cheio-desc:0, vs=sh.checked?sv*qtd:0, vt=th.checked?tv+(ab.checked?av:0):0;
     var base=vl+vs+vt, rush=ru.checked?base*0.25:0, t=base+rush;
     $('calc-thumb-v').innerHTML=video?'$30<small><s>$60</s></small>':'$60';
     $('calc-thumb-n').textContent=video?'50% off with a video':'$30 with a video';
@@ -928,7 +933,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     var tot=usd(t*freq);
     $('calc-total').textContent=tot; $('calc-mes').textContent=freq>1?'/ month':''; $('calc-mini').textContent=tot+(freq>1?'/mo':'');
     var L='', p=[];
-    if(lg.checked){ L+=li('Long-form, '+m+' min'+(prem?', Premium':''),usd(vl)); p.push(m+'-min '+(prem?'Premium ':'')+'long-form video'); }
+    if(lg.checked){ L+=li('Long-form, '+m+' min'+(prem?', Premium':''),usd(cheio)); if(desc>0) L+=li('Long-video discount','−'+usd(desc),'desc'); p.push(m+'-min '+(prem?'Premium ':'')+'long-form video'); }
     if(sh.checked){ var nv=sm.checked?'Premium':sp.checked?'Plus':'Basic'; L+=li(qtd+' '+nv+' Short'+(qtd>1?'s':''),usd(vs)); p.push(qtd+' '+nv+' Short'+(qtd>1?'s':'')); }
     if(th.checked){ L+=li((ab.checked?'Thumbnail + A/B':'Thumbnail')+(video?', 50% off':''),usd(vt)); p.push(ab.checked?'thumbnail with A/B':'thumbnail'); }
     if(ru.checked) L+=li('Rush, 48 h','+'+usd(rush));
@@ -936,7 +941,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
     $('calc-linhas').innerHTML=t?L:li('Nothing selected yet','$0');
     var d=null;
     if(freq>1&&lg.checked&&prem){
-      var comb=th.checked, extra=freq*Math.max(0,m-15)*20+(comb&&ab.checked?freq*10:0);
+      var comb=th.checked, extra=freq*(m>15?custo(m,20)-custo(15,20):0)+(comb&&ab.checked?freq*10:0);
       d={nome:comb?'Long-form + thumbnails':'Long-form only',aba:comb?'aba-combo':'aba-longo',custo:(comb?PL.combo:PL.longo)[freq]+extra,avulso:freq*(vl+vt),porque:'At '+m+' min a video'};
     } else if(freq>1&&!lg.checked&&!sh.checked&&th.checked){
       var tt=tier(ab.checked?PL.thumbAB:PL.thumb,freq);
@@ -946,7 +951,8 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
       if(ts) d={nome:'Shorts '+ts[0],aba:'aba-shorts',custo:ts[1],avulso:freq*vs,porque:'At '+qtd*freq+' Shorts a month'};
     }
     plano(d);
-    r.value=m; r.style.setProperty('--f',((m-1)/59*100).toFixed(1)+'%');
+    r.value=m; r.style.setProperty('--f',((m-1)/119*100).toFixed(1)+'%');
+    $('calc-desc').innerHTML=desc>0?'Long-video discount: <b>−'+usd(desc)+'</b> ('+Math.round(desc/cheio*100)+'% off). Over 120 min? Ask on WhatsApp.':'Longer videos cost less: every minute after 20 is up to 30% off.';
     var bs=f.querySelectorAll('#grupo-short .passo-n button'); bs[0].disabled=qtd<=1; bs[1].disabled=qtd>=20;
     var bf=$('calc-freq').querySelectorAll('button'); bf[0].disabled=fi<=0; bf[1].disabled=fi>=FREQ.length-1;
     var msg='Hi Lucas, quote from your site: '+(freq>1?freq+' a month, ':'')+p.join(' + ')+(ru.checked?', 48 h rush':'')+'. Estimate: '+tot+(freq>1?'/mo':'')+'. My channel: ';
@@ -954,7 +960,7 @@ if(!temObras&&!document.querySelector('.corte')){ document.querySelectorAll('[da
   }
   r.addEventListener('input',function(){ n.value=r.value; calc(); });
   n.addEventListener('input',function(){ if(parseInt(n.value,10)>=1) calc(); });
-  n.addEventListener('change',function(){ n.value=Math.max(1,Math.min(60,parseInt(n.value,10)||1)); calc(); });
+  n.addEventListener('change',function(){ n.value=Math.max(1,Math.min(120,parseInt(n.value,10)||1)); calc(); });
   f.querySelector('#grupo-short .passo-n').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; qtd=Math.max(1,Math.min(20,qtd+ +b.dataset.d)); calc(); });
   $('calc-freq').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; fi=Math.max(0,Math.min(FREQ.length-1,fi+ +b.dataset.d)); calc(); });
   $('calc-plano').addEventListener('click',function(e){ var a=e.target.closest('[data-aba]'); if(!a) return; e.preventDefault(); $(a.dataset.aba).click(); document.querySelector('.abas').scrollIntoView({behavior:calmo?'auto':'smooth',block:'start'}); });
