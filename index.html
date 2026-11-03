@@ -478,65 +478,6 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
     <div class="topo-secao">
       <h2 id="t-plans">Plans</h2>
     </div>
-    <form class="cotacao fosco" id="calc" aria-labelledby="t-quote">
-      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="q-in">
-        <div class="q-cab">
-          <h3 id="t-quote">Quick quote</h3>
-          <p>Build one order or a month of uploads. The price updates as you go.</p>
-        </div>
-
-        <fieldset class="etapa">
-          <legend><span class="n">1</span>What do you need?</legend>
-          <div class="tiles">
-            <label class="tile"><input type="checkbox" id="calc-longo" checked><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span class="t-nome">Long-form</span><span class="t-preco">$10<small>/min</small></span><span class="t-spec">Cuts, pacing, music</span></label>
-            <label class="tile"><input type="checkbox" id="calc-short"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 9.5v5l3.5-2.5z"/></svg><span class="t-nome">Shorts</span><span class="t-preco">$30<small>each</small></span><span class="t-spec">Up to 60 s, captions</span></label>
-            <label class="tile"><input type="checkbox" id="calc-thumb" checked><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><circle cx="8.5" cy="10" r="1.8"/><path d="M21.5 15.5l-5-4.5-7 6.5"/></svg><span class="t-nome">Thumbnail</span><span class="t-preco" id="calc-thumb-v">$30</span><span class="t-spec" id="calc-thumb-n">50% off with a video</span></label>
-          </div>
-        </fieldset>
-
-        <fieldset class="etapa" id="etapa-ajuste">
-          <legend><span class="n">2</span>Fine-tune it</legend>
-          <div class="ajuste" id="grupo-longo">
-            <div class="aj-cab"><span>Long-form length</span><b><span id="calc-min-big">10</span> min</b></div>
-            <div class="minutos">
-              <input class="faixa-min" type="range" id="calc-min" min="1" max="30" value="10" aria-label="Length in minutes">
-              <label class="num"><input type="number" id="calc-min-n" min="1" max="30" value="10" aria-label="Length in minutes, exact"></label>
-            </div>
-            <p class="desc-longo" id="calc-desc">Minutes 21–30 are 15% off. Over 30 min? Get a quote on WhatsApp.</p>
-            <label class="check"><input type="checkbox" id="estilo-prem" checked><span>Premium editing<small>Motion graphics + sound design</small></span><em>+$10/min</em></label>
-          </div>
-          <div class="ajuste" id="grupo-short" hidden>
-            <div class="aj-cab"><span>Shorts</span><div class="passo-n" data-min="1" data-max="20"><button type="button" data-d="-1" aria-label="Fewer Shorts">−</button><output id="calc-qtd">1</output><button type="button" data-d="1" aria-label="More Shorts">+</button></div></div>
-            <label class="check"><input type="checkbox" id="short-plus"><span>Plus<small>B-roll + SFX</small></span><em>+$20</em></label>
-            <label class="check aninhado" id="linha-short-prem" hidden><input type="checkbox" id="short-prem"><span>Premium<small>Motion graphics inserts</small></span><em>+$30</em></label>
-          </div>
-          <div class="ajuste" id="grupo-thumb">
-            <div class="aj-cab"><span>Thumbnail</span></div>
-            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>A/B version<small>2 extra variants for YouTube Test &amp; Compare, +15%</small></span><em id="calc-ab-v">+$4.50</em></label>
-          </div>
-          <p class="vazio" id="calc-vazio" hidden>Pick at least one item above.</p>
-        </fieldset>
-
-        <fieldset class="etapa">
-          <legend><span class="n">3</span>Delivery</legend>
-          <div class="entrega">
-            <label class="check caixa"><input type="checkbox" id="calc-rush"><span>Rush, 48 h<small>+25% on the order</small></span></label>
-            <div class="caixa freq"><span>How often</span><div class="passo-n" id="calc-freq"><button type="button" data-d="-1" aria-label="Less often">−</button><output id="calc-freq-v">Once</output><button type="button" data-d="1" aria-label="More often">+</button></div></div>
-          </div>
-        </fieldset>
-        <div class="q-mini" aria-hidden="true"><span>Estimate</span><b id="calc-mini">$230</b></div>
-      </div>
-
-      <aside class="q-out" aria-live="polite">
-        <h4>Your estimate</h4>
-        <div class="v"><span id="calc-total">$230</span><small id="calc-mes"></small><b class="selo-q selo-desc" id="calc-selo" hidden></b></div>
-        <ul class="linhas" id="calc-linhas"></ul>
-        <div class="plano-q" id="calc-plano" hidden></div>
-        <a class="btn btn-prim" id="calc-whats" href="#start" target="_blank" rel="noopener">Send this quote on WhatsApp <span class="seta" aria-hidden="true">→</span></a>
-        <p class="piloto-q">Not sure yet? Start with a <a href="#start">paid pilot</a>: up to 15 min at $10/min, or a 1-min test for $30.</p>
-      </aside>
-    </form>
     <div class="abas" role="tablist" aria-label="Plan type">
       <button type="button" role="tab" id="aba-longo" aria-controls="painel-longo" aria-selected="true">Long-form only</button>
       <button type="button" role="tab" id="aba-shorts" aria-controls="painel-shorts" aria-selected="false" tabindex="-1">Shorts only</button>
@@ -693,6 +634,65 @@ input[type=range].faixa-min::-moz-range-thumb{width:22px;height:22px;border-radi
       <p class="nota">Quoted in Premium style (motion graphics + SFX), up to 15 minutes per video, one thumbnail per video (à la carte thumbnails are 50% off with a video). Extra minutes are $20 each, 15% off from minute 21; over 30 minutes, we quote on WhatsApp.</p>
     </div>
 
+    <form class="cotacao fosco" id="calc" aria-labelledby="t-quote">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="q-in">
+        <div class="q-cab">
+          <h3 id="t-quote">Quick quote</h3>
+          <p>Build one order or a month of uploads. The price updates as you go.</p>
+        </div>
+
+        <fieldset class="etapa">
+          <legend><span class="n">1</span>What do you need?</legend>
+          <div class="tiles">
+            <label class="tile"><input type="checkbox" id="calc-longo" checked><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span class="t-nome">Long-form</span><span class="t-preco">$10<small>/min</small></span><span class="t-spec">Cuts, pacing, music</span></label>
+            <label class="tile"><input type="checkbox" id="calc-short"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 9.5v5l3.5-2.5z"/></svg><span class="t-nome">Shorts</span><span class="t-preco">$30<small>each</small></span><span class="t-spec">Up to 60 s, captions</span></label>
+            <label class="tile"><input type="checkbox" id="calc-thumb" checked><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><circle cx="8.5" cy="10" r="1.8"/><path d="M21.5 15.5l-5-4.5-7 6.5"/></svg><span class="t-nome">Thumbnail</span><span class="t-preco" id="calc-thumb-v">$30</span><span class="t-spec" id="calc-thumb-n">50% off with a video</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="etapa" id="etapa-ajuste">
+          <legend><span class="n">2</span>Fine-tune it</legend>
+          <div class="ajuste" id="grupo-longo">
+            <div class="aj-cab"><span>Long-form length</span><b><span id="calc-min-big">10</span> min</b></div>
+            <div class="minutos">
+              <input class="faixa-min" type="range" id="calc-min" min="1" max="30" value="10" aria-label="Length in minutes">
+              <label class="num"><input type="number" id="calc-min-n" min="1" max="30" value="10" aria-label="Length in minutes, exact"></label>
+            </div>
+            <p class="desc-longo" id="calc-desc">Minutes 21–30 are 15% off. Over 30 min? Get a quote on WhatsApp.</p>
+            <label class="check"><input type="checkbox" id="estilo-prem" checked><span>Premium editing<small>Motion graphics + sound design</small></span><em>+$10/min</em></label>
+          </div>
+          <div class="ajuste" id="grupo-short" hidden>
+            <div class="aj-cab"><span>Shorts</span><div class="passo-n" data-min="1" data-max="20"><button type="button" data-d="-1" aria-label="Fewer Shorts">−</button><output id="calc-qtd">1</output><button type="button" data-d="1" aria-label="More Shorts">+</button></div></div>
+            <label class="check"><input type="checkbox" id="short-plus"><span>Plus<small>B-roll + SFX</small></span><em>+$20</em></label>
+            <label class="check aninhado" id="linha-short-prem" hidden><input type="checkbox" id="short-prem"><span>Premium<small>Motion graphics inserts</small></span><em>+$30</em></label>
+          </div>
+          <div class="ajuste" id="grupo-thumb">
+            <div class="aj-cab"><span>Thumbnail</span></div>
+            <label class="check"><input type="checkbox" id="calc-thumb-ab"><span>A/B version<small>2 extra variants for YouTube Test &amp; Compare, +15%</small></span><em id="calc-ab-v">+$4.50</em></label>
+          </div>
+          <p class="vazio" id="calc-vazio" hidden>Pick at least one item above.</p>
+        </fieldset>
+
+        <fieldset class="etapa">
+          <legend><span class="n">3</span>Delivery</legend>
+          <div class="entrega">
+            <label class="check caixa"><input type="checkbox" id="calc-rush"><span>Rush, 48 h<small>+25% on the order</small></span></label>
+            <div class="caixa freq"><span>How often</span><div class="passo-n" id="calc-freq"><button type="button" data-d="-1" aria-label="Less often">−</button><output id="calc-freq-v">Once</output><button type="button" data-d="1" aria-label="More often">+</button></div></div>
+          </div>
+        </fieldset>
+        <div class="q-mini" aria-hidden="true"><span>Estimate</span><b id="calc-mini">$230</b></div>
+      </div>
+
+      <aside class="q-out" aria-live="polite">
+        <h4>Your estimate</h4>
+        <div class="v"><span id="calc-total">$230</span><small id="calc-mes"></small><b class="selo-q selo-desc" id="calc-selo" hidden></b></div>
+        <ul class="linhas" id="calc-linhas"></ul>
+        <div class="plano-q" id="calc-plano" hidden></div>
+        <a class="btn btn-prim" id="calc-whats" href="#start" target="_blank" rel="noopener">Send this quote on WhatsApp <span class="seta" aria-hidden="true">→</span></a>
+        <p class="piloto-q">Not sure yet? Start with a <a href="#start">paid pilot</a>: up to 15 min at $10/min, or a 1-min test for $30.</p>
+      </aside>
+    </form>
   </div>
 </section>
 
